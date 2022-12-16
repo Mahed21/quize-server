@@ -1,0 +1,21 @@
+const express = require("express");
+const app = express();
+const cors = require("cors");
+const mongoose = require("mongoose");
+const { query } = require("express");
+app.use(express.json());
+app.use(cors());
+const htmlRouter = require("./router/html.router");
+const cssRouter = require("./router/css.router");
+const bootstrapRouter = require("./router/bootstrap.router");
+const jsRouter = require("./router/javascript.router");
+const nodeRouter = require("./router/nodejs.router");
+const reactRouter = require("./router/react.router");
+app.use("/html", htmlRouter);
+app.use("/css", cssRouter);
+app.use("/bootstrap", bootstrapRouter);
+app.use("/js", jsRouter);
+app.use("/node", nodeRouter);
+app.use("/react", reactRouter);
+
+module.exports = app;
